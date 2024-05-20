@@ -1,0 +1,147 @@
+.main {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.profileImg {
+  background-color: #f4f4f4;
+  border-radius: 50%;
+  padding: 2px;
+}
+.profileText {
+  font-family: Calibri;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 14.65px;
+  color: rgba(0, 0, 0, 1);
+}
+.search {
+  border-radius: 3px;
+  position: relative;
+}
+.searchIcon {
+  position: absolute;
+  top: 7px;
+  right: 9px;
+}
+.search input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 3px;
+  border: none;
+}
+.mainRight {
+  padding: 12px;
+  position: relative;
+}
+.mainLeft {
+  padding: 12px;
+  position: relative;
+}
+.main .image:nth-child(1) {
+  position: absolute;
+  top: -178px;
+  left: -94px;
+  width: 600px;
+  height: 600px;
+}
+.main .image:nth-child(2) {
+  position: absolute;
+  bottom: -111px;
+  right: -94px;
+  width: 600px;
+  height: 600px;
+}
+.main .image:nth-child(3) {
+  position: absolute;
+  top: -111px;
+  right: -94px;
+  width: 600px;
+  height: 600px;
+}
+.main .image:nth-child(4) {
+  position: absolute;
+  bottom: -30%;
+  right: 50%;
+  width: 600px;
+  height: 600px;
+}
+.left {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.6);
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 11px;
+  border-radius: 16px;
+}
+.section {
+  width: 100%;
+}
+.section ul {
+  all: unset;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.section ul li {
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: left;
+  list-style: none;
+  font-weight: 400;
+  line-height: 12.21px;
+  padding: 12px 8px;
+  background-color: white;
+  border-radius: 3px;
+  width: 100%;
+}
+.right {
+  border-radius: 16px;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.6);
+  width: 90%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.right li{
+    background-color: #f0f0f0; 
+    border: 1px solid #d0d0d0;
+    border-radius: 10px; 
+    padding: 8px 12px; 
+    margin-bottom: 8px; 
+    max-width: 80%; 
+    word-wrap: break-word; 
+ 
+  
+}
+.right  li::before {
+  content: ''; 
+  position: absolute;
+  top: 50%;
+  left: -8px; 
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent; 
+  border-bottom: 8px solid transparent; 
+  border-right: 8px solid #f0f0f0; 
+  transform: translateY(-50%); 
+}
+.rightInput {
+  width: 100%;
+  border-radius: 3px;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.rightInput input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 3px;
+  border: none;
+}

@@ -1,0 +1,125 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.container img:nth-child(1){
+  position: absolute;
+  top: -178px;
+  left: -94px;
+  width: 600px;
+height: 600px;
+
+  
+}
+.container img:nth-child(2){
+  position: absolute;
+  bottom: -111px;
+  right: -94px;
+  width: 600px;
+height: 600px;
+
+}
+.container img:nth-child(3){
+  position: absolute;
+  top: -111px;
+  right: -94px;
+  width: 600px;
+height: 600px;
+
+}
+.container img:nth-child(4){
+  position: absolute;
+  bottom: -30%;
+  right: 50%;
+  width: 600px;
+height: 600px;
+
+}
+.registerBox {
+  position: relative;
+  z-index: 2;
+  background:rgba(255, 255, 255, 0.4);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.registerBox h2 {
+  text-align: center;
+font-size: 26px;
+font-weight: 700;
+line-height: 31.74px;
+color: rgba(0, 0, 0, 1);
+padding-block: 10px;
+
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.inputGroup input {
+  
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 1);
+  border-radius: 5px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 1);
+}
+.inputGroup input::placeholder{
+  color: rgba(0, 0, 0, 1);
+
+}
+
+.registerButton {
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 12px;
+}
+
+.registerButton:hover {
+  background-color: #333;
+}
+.registerBox p{
+  font-weight: 500;
+}
+
+.registerBox p span{
+  margin-right: 3px;
+  display: inline-block;
+  margin-block: 5px;
+}
+
+.link {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.error{
+  color: red;
+  font-size: 20px;
+  text-align: center;
+}
+.success{
+  color: rgb(1, 70, 1);
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+}
