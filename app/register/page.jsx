@@ -18,18 +18,31 @@ const Register = () => {
     "/images/3.png",
     "/images/4.png",
   ];
-
+  const validatePassword = (password) => {
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_-])(?=.{6,})/;
+    return passwordRegex.test(password);
+  };
   const handleRegister = async (e) => {
     e.preventDefault();
     if (!username) {
       setUserError("Username is required.");
       return;
     }
+    if (username.length < 7) {
+      setUserError("Username must be at least 6 characters long.");
+      return;
+    }
     if (!password) {
       setPasswordError("Password is required.");
       return;
     }
-
+    if (!validatePassword(password)) {
+      setPasswordError(
+        "Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, and one number."
+      );
+      return;
+    }
     try {
       const response = await fetch(ENDPOINTS.REGISTER(), {
         method: "POST",
@@ -91,7 +104,7 @@ const Register = () => {
             )}
           </div>
           <button type="submit" className={styles.registerButton}>
-            Log in
+            Register
           </button>
         </form>
         {!success && error && <div className={styles.error}>{error}</div>}
@@ -100,11 +113,6 @@ const Register = () => {
           <span> Have an account?</span>
           <Link href="/login" className={styles.link}>
             Login
-          </Link>
-          <br />
-          <span> or continue as a </span>
-          <Link href="/guest" className={styles.link}>
-            Guest
           </Link>
         </p>
       </div>

@@ -14,13 +14,33 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const validatePassword = (password) => {
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_-])(?=.{6,})/;
+    return passwordRegex.test(password);
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
+    setUserError("");
+    setPasswordError("");
+    setError("");
+
     if (!username) {
       setUserError("Username is required.");
     }
     if (!password) {
       setPasswordError("Password is required.");
+      return;
+    }
+    if (username.length < 7) {
+      setUserError("Username must be at least 6 characters long.");
+      return;
+    }
+    if (!validatePassword(password)) {
+      setPasswordError(
+        "Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, and one number."
+      );
       return;
     }
     try {
@@ -96,11 +116,6 @@ const Login = () => {
           <span> Don’t have an account? </span>
           <Link href="/register" className={styles.link}>
             Register
-          </Link>
-          <br />
-          <span> or continue as a </span>
-          <Link href="/guest" className={styles.link}>
-            Guest
           </Link>
         </p>
       </div>

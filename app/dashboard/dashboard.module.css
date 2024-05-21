@@ -114,24 +114,24 @@
     background-color: #f0f0f0; 
     border: 1px solid #d0d0d0;
     border-radius: 10px; 
-    padding: 8px 12px; 
+    padding: 8px 120px 8px 12px; 
     margin-bottom: 8px; 
-    max-width: 80%; 
+    max-width: 90%; 
     word-wrap: break-word; 
  
   
 }
 .right  li::before {
-  content: ''; 
+  content: '';
   position: absolute;
   top: 50%;
-  left: -8px; 
+  left: -8px;
   width: 0;
   height: 0;
-  border-top: 8px solid transparent; 
-  border-bottom: 8px solid transparent; 
-  border-right: 8px solid #f0f0f0; 
-  transform: translateY(-50%); 
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid #d0d0d0;
+  transform: translateY(-50%);
 }
 .rightInput {
   width: 100%;
@@ -144,4 +144,20 @@
   padding: 8px;
   border-radius: 3px;
   border: none;
+}
+.right ol {
+  position: relative;
+}
+.right ol li {
+  position: relative;
+}
+.right ol button{
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: red;
+  border-radius: 3px;
+  font-size: 13px;
+  
 }

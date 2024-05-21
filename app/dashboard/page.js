@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
@@ -8,6 +7,9 @@ import styles from "./dashboard.module.css";
 import { ENDPOINTS } from "@/src/api/routing";
 import { useGetTodo } from "@/src/hooks/useGetTodo";
 import { usePostTodo } from "@/src/hooks/usePostTodo";
+import Search from "@/src/components/Search/Search";
+import List from "@/src/components/List/List";
+import { useDeleteTodo } from "@/src/hooks/useDeleteTodo";
 
 const sections = [
   { title: "My Day", id: 1 },
@@ -21,7 +23,16 @@ export default function Home() {
   const searchParams = useSearchParams();
   const { fetchTodos, todos } = useGetTodo();
   const { postTodo, status, setStatus } = usePostTodo();
+  const { deleteTodo, deleteStatus } = useDeleteTodo();
 
+  useEffect(() => {
+    fetchTodos();
+  }, [deleteStatus]);
+
+  const handleDelete = async (id) => {
+    await deleteTodo(id);
+    fetchTodos();
+  };
   const [currentSection, setCurrentSection] = useState(sections[0]);
   const [searchSection, setSearchSection] = useState("");
   const [value, setValue] = useState("");
@@ -129,19 +140,10 @@ export default function Home() {
               </span>
             </div>
             <div className={`${styles.search} w-100`}>
-              <input
-                placeholder="Search"
-                onChange={({ target: { value } }) => setSearchSection(value)}
+              <Search
+                searchSection={searchSection}
+                setSearchSection={setSearchSection}
               />
-              <div className={styles.searchIcon}>
-                <Image
-                  className="img img-fluid"
-                  src="/images/search.svg"
-                  alt="photo"
-                  width={20}
-                  height={20}
-                />
-              </div>
             </div>
             <div className={styles.section}>
               <ul>
@@ -167,14 +169,12 @@ export default function Home() {
           <div className={styles.right}>
             <div>
               <h1>{currentSection?.title}</h1>
-              <ol>
-                {todos
+              <List
+                items={todos
                   ?.filter((e) => e?.userId == id)
-                  ?.filter((e) => e?.status == currentSection.id)
-                  .map((item) => {
-                    return <li key={item?.id}>{item?.name}</li>;
-                  })}
-              </ol>
+                  ?.filter((e) => e?.status == currentSection.id)}
+                handleDelete={handleDelete}
+              />
             </div>
             <form className={styles.rightInput} onSubmit={handleAdd}>
               <input

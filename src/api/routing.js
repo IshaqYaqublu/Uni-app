@@ -5,4 +5,5 @@ export const ENDPOINTS = {
   LOGIN: () => `${BASE_URL}/auth`,
   GET_TODO: () => `${BASE_URL}/todo`,
   POST_TODO: () => `${BASE_URL}/todo`,
+  DELETE_TODO: () => `${BASE_URL}/todo`,
 };
